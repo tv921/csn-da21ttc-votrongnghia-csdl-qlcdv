@@ -4,8 +4,6 @@
     session_start();
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,19 +19,41 @@
         }
 
         header {
-            background-color: #333;
-            color: white;
+            color: black;
             text-align: center;
             padding: 1em;
         }
 
-        .news-container {
+        main {
+            display: flex;
+            justify-content: space-between;
             max-width: 1400px;
-            width: 75%;
+            width:auto;
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-container {
+            width: 75%;
+        }
+
+        .sidebar {
+            width: 25%;
+            background-color: #eee;
+            padding: 10px;
+        }
+
+        .bottom{
+            display: justify;
+            justify-content: space-between;
+            margin: 10px auto;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: auto;
+            color: white;
+            max-width: 1400px;
         }
 
         .news-item {
@@ -49,33 +69,35 @@
         .news-item p {
             color: #666;
         }
-        .bottom{
-            display: justify;
-            justify-content: space-between;
-            margin: 10px auto;
-            padding: 10px;
-            background-color: rgb(48,48,48);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: auto;
-            color: white;
-            margin-bottom: 0;
+        #img{
+            max-width: 1400px;
+            width: 100%;
+            height: 100%;
         }
 
-        footer {
-            position: absolute;
+         footer {
             bottom: 0;
             width: 100%;
-            height: 2.5rem;  
+            background-color: rgb(48,48,48);
+        }
+        marquee{
+            background-color: skyblue;
+            color: red;
         }
     </style>
 </head>
 <body>
-
     <header>
+         <marquee style=" font-size:22px;height: 20%; width: 60%" >
+            NHIỆT LIỆT CHÀO MỪNG ĐẠI HỘI XIII CÔNG ĐOÀN VIỆT NAM, NHIỆM KỲ 2023 - 2028
+        </marquee>
+        <img src="hinh/hinh.jpg" alt="" id="img">
     </header>
 
-    <div class="news-container">
-    <?php
+    <main>
+        <div class="news-container">
+        <h1>Tin tức</h1>
+        <?php
         $sql= "SELECT * FROM tb_tintuc;";  
         $result = mysqli_query($conn, $sql);      
         $resultCheck = mysqli_num_rows($result);
@@ -119,15 +141,35 @@
                     </table>';
                 }         
             } 
-    ?>
-        <!-- Thêm các tin tức khác tương tự ở đây -->
-    </div>
+        ?>
+        </div>
+
+        <div class="sidebar">
+            <h2>Đăng nhập</h2>
+            <form method="post" action="login.php">
+        <?php if (isset($_GET['error'])) { ?>
+     		<p class="error" id="error"><?php echo $_GET['error']; ?></p>
+     	<?php } ?>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Tài khoản</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="uname">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Đăng nhập</button>
+        </form>
+        </div> 
+    </main>
     <footer>
-          <div class="bottom">
+    <div class="bottom">
             <p>CÔNG ĐOÀN VIÊN</p>
             <p>Số điện thoại: (024)09123456</p>
             <p>Email: myemail@gmail.com</p>
         </div>
-    </footer>  
+    </footer>
+       
 </body>
 </html>
+

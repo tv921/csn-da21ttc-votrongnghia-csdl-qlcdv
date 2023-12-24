@@ -3,7 +3,7 @@
     include_once 'connect.php';
     session_start();
 
-    if (isset($_SESSION['USERS_ID']) && isset($_SESSION['ACCOUNT'])) {
+    if (isset($_SESSION['USERS_ID']) && isset($_SESSION['TAIKHOAN'])) {
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
         main {
             display: flex;
             justify-content: space-between;
-            max-width: 1000px;
+            max-width: 1400px;
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
@@ -39,11 +39,11 @@
         }
 
         .news-container {
-            width: 65%;
+            width: 75%;
         }
 
         .sidebar {
-            width: 30%;
+            width: 25%;
             background-color: #eee;
             padding: 10px;
         }
@@ -85,9 +85,12 @@
         $resultCheck = mysqli_num_rows($result);
          echo '<table style="width:100%" border="1" cellspacing="5px" cellpadding="5px "> 
             <tr> 
-                <td> <font face="Arial">Ma CDV &nbsp;</font> </td> 
+                <td> <font face="Arial">Mã CDV &nbsp;</font> </td> 
                 <td> <font face="Arial">Tên CDV &nbsp;</font> </td> 
                 <td> <font face="Arial">Ngày sinh</font> </td> 
+                <td> <font face="Arial">Giới tính</font> </td> 
+                <td> <font face="Arial">Ngày vào CD</font> </td> 
+                <td> <font face="Arial">Địa chỉ</font> </td> 
             </tr>';   
         if($resultCheck > 0)
         {
@@ -96,10 +99,16 @@
                 $fieldname1 = $row['MACDV'];
                 $fieldname2 = $row['TENCVD'];
                 $fieldname3 = $row['NGAYSINH'];
+                $fieldname4 = $row['GIOITINH'];
+                $fieldname5 = $row['NGAYVAOCD'];
+                $fieldname6 = $row['DIACHI'];
                 echo '<tr>
                     <td>'.$fieldname1." ".'</td>
                     <td>'.$fieldname2." ".'</td> 
-                    <td>'.$fieldname3." ".'</td><br> 
+                    <td>'.$fieldname3." ".'</td>
+                    <td>'.$fieldname4." ".'</td>
+                    <td>'.$fieldname5." ".'</td>
+                    <td>'.$fieldname6." ".'</td><br>
                 </tr>';
             } 
         }
@@ -114,7 +123,7 @@
 
 <?php 
 }else{
-     header("Location: home1.php");
+     header("Location: home.php");
      exit();
 }
  ?>

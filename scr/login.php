@@ -21,20 +21,21 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
         header("Location: sign.php?error=Mật khẩu không được để trống!");
 	    exit();
 	}else{
-		$sql = "SELECT * FROM tb_users WHERE account='$uname' AND password='$pass'";
+		$sql = "SELECT * FROM tb_user WHERE TAIKHOAN='$uname' AND MATKHAU='$pass'";
 
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
-            if ($row['ACCOUNT'] === $uname && $row['PASSWORD'] === $pass && $row['QUYEN']==='users') {
-            	$_SESSION['ACCOUNT'] = $row['ACCOUNT'];
-            	$_SESSION['MACDV'] = $row['MACDV'];
+            if ($row['TAIKHOAN'] === $uname && $row['MATKHAU'] === $pass && $row['MAQUYEN'] === '01') {
+            	$_SESSION['TAIKHOAN'] = $row['TAIKHOAN'];
+				$_SESSION['MATKHAU'] = $row['MATKHAU'];
             	$_SESSION['USERS_ID'] = $row['USERS_ID'];
             	header("Location: admin.php");
 		        exit();
-            }else if($row['ACCOUNT'] === $uname && $row['PASSWORD'] === $pass && $row['QUYEN']==='admin'){
-            	$_SESSION['ACCOUNT'] = $row['ACCOUNT'];
+            }else if($row['TAIKHOAN'] === $uname && $row['MATKHAU'] === $pass && $row['MAQUYEN'] === '02'){
+    			$_SESSION['TAIKHOAN'] = $row['TAIKHOAN'];
+				$_SESSION['MATKHAU'] = $row['MATKHAU'];
             	$_SESSION['USERS_ID'] = $row['USERS_ID'];
             	header("Location: admin.php");
 		        exit();
@@ -45,7 +46,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 		        exit();
 			}
 		}else{
-			header("Location: sign.php?error=Sai tài khoản hoặc mật khẩu!");
+			header("Location: sign.php?error=Sai tài khoản hoặc mật khẩu22!");
 	        exit();
 		}
 	}

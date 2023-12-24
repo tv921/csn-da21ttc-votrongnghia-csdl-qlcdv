@@ -52,7 +52,7 @@
 footer {
   background-color: #333;
   color: white;
-  text-align: center;
+  text-align: left;
   padding: 1em;
 }
 
@@ -70,8 +70,7 @@ footer {
 
     </div>
    </div>
-     <footer>
-    <p></p>
+     <footer> 
   </footer> 
 </body>
 </html>

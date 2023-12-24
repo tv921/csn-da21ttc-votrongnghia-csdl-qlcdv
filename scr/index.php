@@ -21,6 +21,7 @@
     }
 
   body {
+
     background-size: cover;
     background-attachment: fixed;
   }
@@ -34,12 +35,19 @@
   .navbar-brand {
     color:white;
   }
+
+  #div_index{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    width:80%;
+  }
   
   </style>
   <!--css code-->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
-  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark" >
+  <div class="container-fluid" id="div_index">
     <a class="navbar-brand">
       <img src="hinh/logo.jpg" width="50" height="50">
     </a>
@@ -49,7 +57,7 @@
     <div class="collapse navbar-collapse navbar-grand" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link navbar-brand" href="home1.php">Trang chủ</a>
+          <a class="nav-link navbar-brand" href="home.php">Trang chủ</a>
         </li> 
         <li class="nav-item">
           <a class="nav-link navbar-brand" href="tintuc.php">Thông báo</a>
