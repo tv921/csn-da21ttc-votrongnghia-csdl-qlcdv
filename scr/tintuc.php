@@ -82,20 +82,8 @@
             while($row=mysqli_fetch_assoc($result))
             {
                 $fieldname1 = $row['TIEUDE'];
-                if($row['MATINTUC'] === '1')
+                if($row['MATINTUC'] === 'tt1')
                 { 
-                    echo '
-                    <table>
-                    <th>
-                    <img src="hinh/logo.jpg" alt="" height="90px" width="90px"> &nbsp; &nbsp;
-                    </th>
-                    <td>
-                    <p><a href="tintuc1.php" style="font-size: 20px;text-decoration: none; color: inherit;">'.$fieldname1.'</a></p><br>
-                    </td>
-                    </table>';
-                }
-                if($row['MATINTUC'] === '2')
-                {
                     echo '
                     <table>
                     <th>
@@ -106,7 +94,19 @@
                     </td>
                     </table>';
                 }
-                if($row['MATINTUC'] === '3')
+                if($row['MATINTUC'] === 'tt2')
+                {
+                    echo '
+                    <table>
+                    <th>
+                    <img src="hinh/logo.jpg" alt="" height="90px" width="90px"> &nbsp; &nbsp;
+                    </th>
+                    <td>
+                    <p><a href="tintuc1.php" style="font-size: 20px;text-decoration: none; color: inherit;">'.$fieldname1.'</a></p><br>
+                    </td>
+                    </table>';
+                }
+                if($row['MATINTUC'] === 'tt3')
                 {
                     echo '
                     <table>
@@ -120,7 +120,6 @@
                 }         
             } 
     ?>
-        <!-- Thêm các tin tức khác tương tự ở đây -->
     </div>
     <footer>
           <div class="bottom">

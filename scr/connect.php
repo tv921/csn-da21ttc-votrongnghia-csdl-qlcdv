@@ -2,9 +2,10 @@
     $dbServerName = "localhost";
     $dbUserName = "root";
     $dbPassword  = "";
-    $dbName = "qldv2";
+    $dbName = "qldv3";
     $conn =mysqli_connect($dbServerName, $dbUserName, $dbPassword, $dbName );
     if (!$conn) {
 	echo "Connection failed!";
-}
+    }
+    echo "Connection successfully!"
  ?>

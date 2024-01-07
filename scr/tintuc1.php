@@ -1,5 +1,6 @@
 <?php
     include 'index.php';
+    include_once 'connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +63,8 @@ footer {
    <div class="new-container">
     <div class="news-item">
         
-    <h2>Trường Đại học Trà Vinh có thêm 03 chương trình đào tạo đạt kiểm định chất lượng giáo dục quốc tế AUN – QA là ngành Điều dưỡng, Nông nghiệp và Ngôn ngữ Khmer, nâng tổng số chương trình đạt chuẩn chất lượng giáo dục quốc tế lên 09 chương trình và là Trường nằm trong tốp đầu ở ĐBSCL có nhiều chương trình đạt kiểm định chất lượng giáo dục quốc tế AUN – QA và FIBAA.</h2><img src="hinh/tvu.jpg" alt="">
+    <h2>Trường Đại học Trà Vinh có thêm 03 chương trình đào tạo đạt kiểm định chất lượng giáo dục quốc tế AUN – QA là ngành Điều dưỡng, Nông nghiệp và Ngôn ngữ Khmer, nâng tổng số chương trình đạt chuẩn chất lượng giáo dục quốc tế lên 09 chương trình và là Trường nằm trong tốp đầu ở ĐBSCL có nhiều chương trình đạt kiểm định chất lượng giáo dục quốc tế AUN – QA và FIBAA.</h2>
+    <img src="hinh/tvu.jpg" alt="">
     <p>Theo báo cáo kết quả đánh giá ngoài do Ban Thư ký AUN-QA gửi đến Nhà trường vào ngày 01 tháng 11 năm 2021, tất cả 03 chương trình đào tạo điều đạt tốt các tiêu chuẩn, tiêu chí và các yêu cầu theo tiêu chuẩn AUN-QA. Đáng chú ý, ngành Điều dưỡng của Trường được nhận xét là đạt rất tốt theo yêu cầu chất lượng của AUN-QA (tổng điểm của ngành đạt mức 5/7 điểm).</p>
     <p>Là thành viên liên kết của Mạng lưới các trường đại học Đông Nam Á (AUN) kể từ tháng 7 năm 2014, Trường Đại học Trà Vinh đã không ngừng nỗ lực trong việc xây dựng và liên tục phát triển hệ thống đảm bảo chất lượng bên trong của Nhà trường. Thành công của 03 CTĐT trên đã góp phần nâng tổng số CTĐT được đánh giá đạt chuẩn chất lượng giáo dục quốc tế của Nhà trường lên 09 chương trình, trong đó 05 CTĐT đạt tiêu chuẩn chất lượng giáo dục quốc tế AUN-QA là: Nông nghiệp, Thủy sản, Thú y thuộc  Khoa Nông nghiệp, thủy sản; Điều dưỡng thuộc Khoa Y Dược; Ngôn ngữ Khmer thuộc Khoa Ngôn ngữ, Văn hóa, Nghệ thuật Khmer Nam Bộ; 04 CTĐT đạt tiêu chuẩn chất lượng giáo dục quốc tế FIBAA: Quản trị kinh doanh; Kinh tế; Kế toán và Tài chính ngân hàng thuộc Khoa Kinh tế – Luật.</p>
 

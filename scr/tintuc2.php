@@ -1,5 +1,6 @@
 <?php
     include 'index.php';
+    include_once 'connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +61,7 @@ footer {
 </head>
 <body> 
    <div class="new-container">
-    <div class="news-item">
+    <div class="news-item"> 
         
     <h2>Hội thi tiếng hát karaoke năm 2023 mừng Ngày Phụ nữ Việt Nam 20/10</h2>
     <img src="hinh/tvu.jpg" alt="">
