@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2024 at 12:44 PM
+-- Generation Time: Jan 15, 2024 at 02:34 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `qldv3`
+-- Database: `db2`
 --
 
 -- --------------------------------------------------------
@@ -29,19 +29,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_bomon` (
   `MABOMON` char(20) NOT NULL,
+  `MADONVI` char(20) NOT NULL,
   `TENBOMON` char(20) DEFAULT NULL,
   `SDTBOMON` decimal(20,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_bomon`
 --
 
-INSERT INTO `tb_bomon` (`MABOMON`, `TENBOMON`, `SDTBOMON`) VALUES
-('CK-DL', 'Cơ khí-Động lực', 921345618),
-('CNTT', 'Công nghệ thông tin', 921345678),
-('D-DT', 'Điện-Điện tử', 921345619),
-('XD', 'Xây dựng', 921345676);
+INSERT INTO `tb_bomon` (`MABOMON`, `MADONVI`, `TENBOMON`, `SDTBOMON`) VALUES
+('CK-DL', 'TVU', 'Cơ khí-Động lực', 921345677),
+('CNTT', 'TVU', 'Công nghệ thông tin', 921345678),
+('D-DT', 'TVU', 'Điện-Điện tử', 921345619),
+('XD', 'TVU', 'Bộ môn xây dựng', 921345676);
 
 -- --------------------------------------------------------
 
@@ -51,19 +52,18 @@ INSERT INTO `tb_bomon` (`MABOMON`, `TENBOMON`, `SDTBOMON`) VALUES
 
 CREATE TABLE `tb_dongia` (
   `MADONGIA` char(20) NOT NULL,
-  `MADONVI` char(20) NOT NULL,
   `DONGIA` char(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_dongia`
 --
 
-INSERT INTO `tb_dongia` (`MADONGIA`, `MADONVI`, `DONGIA`) VALUES
-('dg1', 'VND', '2000000'),
-('dg2', 'VND', '1000000'),
-('dg3', 'VND', '500000'),
-('dg4', 'VND', '3000000');
+INSERT INTO `tb_dongia` (`MADONGIA`, `DONGIA`) VALUES
+('dg1', '500000'),
+('dg2', '1000000'),
+('dg3', '2000000'),
+('dg4', '2500000');
 
 -- --------------------------------------------------------
 
@@ -74,14 +74,14 @@ INSERT INTO `tb_dongia` (`MADONGIA`, `MADONVI`, `DONGIA`) VALUES
 CREATE TABLE `tb_donvi` (
   `MADONVI` char(20) NOT NULL,
   `DONVI` char(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_donvi`
 --
 
 INSERT INTO `tb_donvi` (`MADONVI`, `DONVI`) VALUES
-('VND', 'Việt nam đồng');
+('TVU', 'Đại học Trà Vinh');
 
 -- --------------------------------------------------------
 
@@ -96,17 +96,17 @@ CREATE TABLE `tb_nguoithan` (
   `TENNGUOITHAN` char(20) DEFAULT NULL,
   `NGAYSINH` date DEFAULT NULL,
   `GIOITINH` char(20) DEFAULT NULL,
-  `SDT` decimal(10,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `SDT` decimal(20,0) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_nguoithan`
 --
 
 INSERT INTO `tb_nguoithan` (`MANGUOITHAN`, `MAQH`, `MACDV`, `TENNGUOITHAN`, `NGAYSINH`, `GIOITINH`, `SDT`) VALUES
-('01', '1', '001', 'Võ Thị A', '1990-11-11', 'Nữ', 913132256),
-('02', '2', '002', 'Nguyễn Thị B', '1990-12-09', 'Nữ', 913123216),
-('03', '3', '003', 'Trần Văn C', '1990-12-06', 'Nam', 913123756);
+('01', 'qh1', '001', 'Võ Thị A', '1990-11-11', 'Nữ', 913372110),
+('02', 'qh3', '002', 'Võ Thị B', '1990-12-08', 'Nữ', 913372111),
+('03', 'qh2', '003', 'Nguyễn Thị C', '1990-12-09', 'Nữ', 913123455);
 
 -- --------------------------------------------------------
 
@@ -117,16 +117,16 @@ INSERT INTO `tb_nguoithan` (`MANGUOITHAN`, `MAQH`, `MACDV`, `TENNGUOITHAN`, `NGA
 CREATE TABLE `tb_quanhe` (
   `MAQH` char(20) NOT NULL,
   `MOIQUANHE` char(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_quanhe`
 --
 
 INSERT INTO `tb_quanhe` (`MAQH`, `MOIQUANHE`) VALUES
-('1', 'con'),
-('2', 'vợ chồng'),
-('3', 'cha mẹ');
+('qh1', 'con cái'),
+('qh2', 'vợ chồng'),
+('qh3', 'cha mẹ');
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,7 @@ CREATE TABLE `tb_quyen` (
   `MAQUYEN` char(20) NOT NULL,
   `QUYEN` char(20) DEFAULT NULL,
   `MOTA` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_quyen`
@@ -146,7 +146,7 @@ CREATE TABLE `tb_quyen` (
 
 INSERT INTO `tb_quyen` (`MAQUYEN`, `QUYEN`, `MOTA`) VALUES
 ('01', 'admin', 'Người sử dụng có quyền admin thường có quyền lực cao nhất trong hệ thống hoặc ứng dụng.'),
-('02', 'users', 'Người sử dụng thông thường chỉ có quyền lực hạn chế so với admin.');
+('02', 'user', 'Người sử dụng thông thường chỉ có quyền lực hạn chế so với admin.');
 
 -- --------------------------------------------------------
 
@@ -159,16 +159,16 @@ CREATE TABLE `tb_thamhoi` (
   `MADONGIA` char(20) NOT NULL,
   `MACDV` char(20) NOT NULL,
   `NOIDUNG` char(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_thamhoi`
 --
 
 INSERT INTO `tb_thamhoi` (`MATHAMHOI`, `MADONGIA`, `MACDV`, `NOIDUNG`) VALUES
-('1', 'dg1', '001', 'Người thân bị bệnh'),
-('2', 'dg2', '002', 'Trợ cấp thiên tai'),
-('3', 'dg3', '003', 'Tai nạn');
+('th1', 'dg1', '001', 'Người thân bị bệnh'),
+('th2', 'dg2', '002', 'Trợ cấp thiên tai'),
+('th3', 'dg3', '003', 'Tai nạn');
 
 -- --------------------------------------------------------
 
@@ -186,16 +186,16 @@ CREATE TABLE `tb_thongtincdv` (
   `TENCVD` char(20) DEFAULT NULL,
   `DIACHI` text DEFAULT NULL,
   `SDT` decimal(20,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_thongtincdv`
 --
 
 INSERT INTO `tb_thongtincdv` (`MACDV`, `MABOMON`, `CHUCVU`, `NGAYSINH`, `GIOITINH`, `NGAYVAOCD`, `TENCVD`, `DIACHI`, `SDT`) VALUES
-('001', 'CNTT', 'Công đoàn viên', '1990-11-11', 'Nam', '2010-11-11', 'Nguyễn Văn A', 'Số nhà 123, đường Võ Văn Kiệt, Trà Vinh', 913372110),
-('002', 'XD', 'Công đoàn viên', '1990-12-09', 'Nữ', '2012-12-12', 'Lê Thị C', 'Số nhà 100, đường Võ Văn Kiệt, Trà Vinh', 913123456),
-('003', 'CNTT', 'Công đoàn viên', '1990-12-02', 'Nam', '2012-06-12', 'Võ Văn C', 'Số nhà 167, đường Võ Văn Kiệt, Trà Vinh', 913372111);
+('001', 'CK-DL', 'Công đoàn viên', '1990-11-11', 'Nam', '2010-11-11', 'Nguyễn Văn A', 'Số nhà 123, đường Võ Văn Kiệt, Trà Vinh', 913123216),
+('002', 'CNTT', 'Công đoàn viên', '1990-12-12', 'Nữ', '2012-12-12', 'Lê Thị C', 'Số nhà 100, đường Võ Văn Kiệt, Trà Vinh', 917122216),
+('003', 'XD', 'Công đoàn viên', '1990-12-06', 'Nam', '2012-12-12', 'Võ Văn C', 'Số nhà 167, đường Võ Văn Kiệt, Trà Vinh', 913132256);
 
 -- --------------------------------------------------------
 
@@ -206,15 +206,15 @@ INSERT INTO `tb_thongtincdv` (`MACDV`, `MABOMON`, `CHUCVU`, `NGAYSINH`, `GIOITIN
 CREATE TABLE `tb_tintuc` (
   `MATINTUC` char(20) NOT NULL,
   `TIEUDE` text DEFAULT NULL,
-  `MOIDUNG` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `NOIDUNG` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_tintuc`
 --
 
-INSERT INTO `tb_tintuc` (`MATINTUC`, `TIEUDE`, `MOIDUNG`) VALUES
-('tt1', 'Hội thi tiếng hát karaoke năm 2023 mừng Ngày Phụ nữ Việt Nam 20/10.', ''),
+INSERT INTO `tb_tintuc` (`MATINTUC`, `TIEUDE`, `NOIDUNG`) VALUES
+('tt1', 'Hội thi tiếng hát karaoke năm 2023 mừng Ngày Phụ nữ Việt Nam 20/10.', NULL),
 ('tt2', 'Trường Đại học Trà Vinh có thêm 03 chương trình đào tạo đạt kiểm định chất lượng giáo dục quốc tế AUN – QA là ngành Điều dưỡng, Nông nghiệp và Ngôn ngữ Khmer, nâng tổng số chương trình đạt chuẩn chất lượng giáo dục quốc tế lên 09 chương trình và là Trường nằm trong tốp đầu ở ĐBSCL có nhiều chương trình đạt kiểm định chất lượng giáo dục quốc tế AUN – QA và FIBAA.', NULL),
 ('tt3', 'Lễ ký kết Biên bản ghi nhớ thực hiện Chương trình “75 nghìn sáng kiến, vượt khó, phát triển”.', NULL);
 
@@ -230,7 +230,7 @@ CREATE TABLE `tb_user` (
   `MAQUYEN` char(20) NOT NULL,
   `TAIKHOAN` char(20) DEFAULT NULL,
   `MATKHAU` char(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_user`
@@ -238,8 +238,8 @@ CREATE TABLE `tb_user` (
 
 INSERT INTO `tb_user` (`USERS_ID`, `MACDV`, `MAQUYEN`, `TAIKHOAN`, `MATKHAU`) VALUES
 ('001', '001', '01', 'taikhoan1', '123'),
-('002', '002', '02', 'taikhoan2', '123'),
-('003', '003', '02', 'taikhoan3', '123');
+('002', '002', '02', 'taikhoan2', '111'),
+('003', '003', '02', 'taikhoan3', '122');
 
 --
 -- Indexes for dumped tables
@@ -249,14 +249,14 @@ INSERT INTO `tb_user` (`USERS_ID`, `MACDV`, `MAQUYEN`, `TAIKHOAN`, `MATKHAU`) VA
 -- Indexes for table `tb_bomon`
 --
 ALTER TABLE `tb_bomon`
-  ADD PRIMARY KEY (`MABOMON`);
+  ADD PRIMARY KEY (`MABOMON`),
+  ADD KEY `FK_THUOC_DON_VI` (`MADONVI`);
 
 --
 -- Indexes for table `tb_dongia`
 --
 ALTER TABLE `tb_dongia`
-  ADD PRIMARY KEY (`MADONGIA`),
-  ADD KEY `FK_DON_VI` (`MADONVI`);
+  ADD PRIMARY KEY (`MADONGIA`);
 
 --
 -- Indexes for table `tb_donvi`
@@ -318,10 +318,10 @@ ALTER TABLE `tb_user`
 --
 
 --
--- Constraints for table `tb_dongia`
+-- Constraints for table `tb_bomon`
 --
-ALTER TABLE `tb_dongia`
-  ADD CONSTRAINT `FK_DON_VI` FOREIGN KEY (`MADONVI`) REFERENCES `tb_donvi` (`MADONVI`);
+ALTER TABLE `tb_bomon`
+  ADD CONSTRAINT `FK_THUOC_DON_VI` FOREIGN KEY (`MADONVI`) REFERENCES `tb_donvi` (`MADONVI`);
 
 --
 -- Constraints for table `tb_nguoithan`
